@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background: #4a00e0;
+            background: linear-gradient(to right, #8e2de2, #4a00e0);
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #222;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #444;
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .project {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid #4a00e0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .project h3 {
+            margin-top: 0;
+        }
+
+        .project button {
+            background: #4a00e0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .project button:hover {
+            background: #372fbd;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>👋 Hi, I'm Damilare Adedeji</h1>
+        <p>Web Developer | Designer | Dreamer</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I love building websites that are fast, responsive, and visually delightful. This is my creative playground
+            where I showcase some of my favorite projects built with HTML, CSS, and JavaScript.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <div class="project">
+            <h3>🔒 Password Generator</h3>
+            <p>A tool to generate secure passwords using JavaScript randomness.</p>
+            <button onclick="alert('Password: ' + generatePassword())">Generate Password</button>
+        </div>
+
+        <div class="project">
+            <h3>🎮 Rock Paper Scissors</h3>
+            <p>Challenge the computer in a quick game of Rock, Paper, Scissors.</p>
+            <button onclick="playRPS()">Play Now</button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>You can reach me at: <strong>damilaretoyese@gmail.com</strong></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Damilare Adedeji. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function generatePassword() {
+            const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+            let password = "";
+            for (let i = 0; i < 12; i++) {
+                password += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return password;
+        }
+
+        function playRPS() {
+            const choices = ['Rock', 'Paper', 'Scissors'];
+            const user = prompt("Rock, Paper, or Scissors?");
+            const computer = choices[Math.floor(Math.random() * 3)];
+            if (!user) return;
+            if (user === computer) alert(`Draw! You both chose ${user}`);
+            else if (
+                (user === 'Rock' && computer === 'Scissors') ||
+                (user === 'Paper' && computer === 'Rock') ||
+                (user === 'Scissors' && computer === 'Paper')
+            ) {
+                alert(`You win! Computer chose ${computer}`);
+            } else {
+                alert(`You lose! Computer chose ${computer}`);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
